@@ -709,6 +709,7 @@ span {
     align-items: center;
     justify-content: center;
     fill: transparent;
+    cursor: pointer;
 }
 
 .form-checkbox:checked + .accept .checkbox-span {
