@@ -51,6 +51,7 @@ ol {
 
 img {
     display: block;
+    max-width: 100%;
 }
 
 input {
@@ -252,6 +253,12 @@ address .contacts {
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
+}
+
+@media only screen and (min-resolution: 192dpi) {
+    .box {
+        background-image: url(../images/hero/people-office1@2.jpg);
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -493,6 +500,7 @@ address .contacts {
 }
 
 .section-two .card-caption {
+    width: 264px;
     padding: 32px 0;
 }
 
@@ -891,8 +899,8 @@ address .contacts {
     width: 100%;
     height: 100%;
     background-color: rgba(46, 47, 66, 0.4);
-    opacity: 0;
-    pointer-events: none; 
+    /* opacity: 0;
+    pointer-events: none;  */
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -907,18 +915,19 @@ address .contacts {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     width: 288px;
-    min-height: 623px; 
+    min-height: 584px; 
     background-color: #fcfcfc;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 72px 24px 24px 24px;
+    padding: 72px 16px 24px 16px;
 }
 
 @media only screen and (min-width: 768px) {
    .modal {
         width: 408px;
         min-height: 584px;
+        padding: 72px 24px 24px 24px;
   }
 }
 
@@ -1111,13 +1120,25 @@ address .contacts {
 /* #endregion */
 /* #region Mobile menu */
 .mobile-menu {
-    position: relative;
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     position: fixed;
-    inset: 0;
+    top: 0;
+    right: 0;
     max-width: 320px;
     height: 640px;
     padding: 72px 20px 40px 20px;
+    opacity: 0;
+    pointer-events: all;
+    visibility: hidden;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu.is-open {
+    opacity: 1;
+    pointer-events: none;
+    visibility: visible;
 }
 
 @media only screen and (min-width: 768px) {
